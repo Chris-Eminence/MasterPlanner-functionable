@@ -7,6 +7,8 @@ import android.speech.RecognizerIntent;
 import android.speech.tts.TextToSpeech;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -14,6 +16,7 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import java.util.ArrayList;
 import java.util.Locale;
@@ -29,22 +32,73 @@ public class MainActivity extends AppCompatActivity {
     Button copyButton;
     EditText mEditTextV;
     TextToSpeech t1;
+    CardView todoCardView, timeTableCardView, calendarCardView, notepadCardView;
+
+    CheckBox mCheckBox;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        todoCardView = findViewById(R.id.todoCardView);
+        timeTableCardView = findViewById(R.id.timeTableCardView);
+        calendarCardView = findViewById(R.id.calenderCardView);
+        notepadCardView = findViewById(R.id.notes_card_view);
+
         timeTableBTN = findViewById(R.id.time_table_layout);
         todoBTN = findViewById(R.id.todo_layout);
         notePadBTN = findViewById(R.id.notes_card_layout);
         calenderBTN = findViewById(R.id.calender_layout);
         mVoiceBtn = findViewById(R.id.speakBtn);
+        mCheckBox = findViewById(R.id.checkbox);
         welcomeVoice = findViewById(R.id.welcomeNote);
 //        mSpeakBtn = findViewById(R.id.speakBtn);
         keyword = findViewById(R.id.keyWord);
 //        mVoiceBtn = findViewById(R.id.voiceBtn);
 //        copyButton = findViewById(R.id.copyBtn);
+
+        mCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                 if(isChecked)
+                    {
+                        notepadCardView.setVisibility(View.VISIBLE);
+                        timeTableCardView.setVisibility(View.VISIBLE);
+                        todoCardView.setVisibility(View.VISIBLE);
+                        calendarCardView.setVisibility(View.VISIBLE);
+
+
+                    }
+                    else
+                    {
+                        notepadCardView.setVisibility(View.INVISIBLE);
+                        timeTableCardView.setVisibility(View.INVISIBLE);
+                        todoCardView.setVisibility(View.INVISIBLE);
+                        calendarCardView.setVisibility(View.INVISIBLE);
+
+                    }
+                }
+
+        });
+
+
+//        public void mCheckBox(View view) {
+//            boolean checked = ((CheckBox) view).isChecked();
+//
+//            switch(view.mC()) {
+//                case R.id.checkbox:
+//                    if (checked) {
+//                        View v9 = findViewById(R.id.calenderCardView | R.id.todoCardView | R.id.notes_card_view | R.id.timeTableCardView);
+//                        v9.setVisibility(View.VISIBLE);
+//                    }//do things when checked
+//                    else
+//                        removeLayout789();
+//                    // do things when unchecked
+//                    break;
+//
+//            }
+//        }
 
         timeTableBTN.setOnClickListener(new View.OnClickListener() {
             @Override
