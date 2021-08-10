@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="juliushenke.smarttt">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:fullBackupContent="@xml/backup_descriptor">
+        <activity
+            android:name="juliushenke.smarttt.TimeTableMainActivity"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="juliushenke.smarttt.TimeTableSettingsActivity"
+            android:label="@string/Settings"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:parentActivityName="juliushenke.smarttt.TimeTableMainActivity"/>
+        <activity
+            android:name="juliushenke.smarttt.TimeTableSubjectActivity"
+            android:label="@string/Subject"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:parentActivityName="juliushenke.smarttt.TimeTableMainActivity"
+            android:windowSoftInputMode="stateHidden"/>
+    </application>
+
+</manifest>

@@ -1,0 +1,10 @@
+include ':NotesApp'
+include ':noteapp-master'
+include ':Note_master'
+include ':TodoApp'
+include ':Todo-app-android-master'
+include ':MVVM-TodoList-master'
+include ':Todo-App-master'
+include ':Timetable-App-master'
+include ':app'
+rootProject.name = "My Application"
